@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Мин-приложение для "заВилка"</title>
+    </head>
+    <body>
+        <h1>Добро пожаловать, <b> {{ name }}!</b></h1>
+        <h2>Меню доставки от <b>заВилка</b></h2>
+        <ul>
+            {% for food in menu_list %} 
+                {% if food['image_url'] %}
+                <img src="{{ food['image_url'] }}" alt="{{ food['name_dish'] }}" width="200" />
+                {% endif %}
+            <li>
+                <h3>{{ food['name_dish']}}</h3>
+                <p>Ингредиенты: {{ food['ingredients']}}</p>
+                <p>Цена: {{ food['cost_dish']}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
